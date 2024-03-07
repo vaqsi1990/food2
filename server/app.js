@@ -17,7 +17,10 @@ const fs = require('fs')
 const mime = require('mime-types');
 app.use(express.json())
 app.use('/uploads',express.static(__dirname + '/uploads') )
-const allowedOrigins = ['http://localhost:3000'];
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://food2-front-ln445c1u9-vaqsis-projects.vercel.app'
+];
 
 
 
