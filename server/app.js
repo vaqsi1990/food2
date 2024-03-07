@@ -97,9 +97,7 @@ app.use(cookieParser())
     });
   })
   
-app.use('/', (req, res) => {
-  res.send('working')
-})
+
 
   mongoose
   .connect(DB)
