@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="text"],input[type="password"],
+input[type="email"],input[type="number"],
+input[type="tel"],
+textarea{
+    @apply w-full border my-1 py-2 px-3 rounded-2xl;
+}
+textarea{
+    height: 140px;
+}
+button{
+    @apply bg-gray-300;
+}
+
+.bg-primary {
+    background-color: #F5385D;
+}
+
+.pe{
+    font-weight: 500;
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    width: 40px;
+    height: 40px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #101010;
+    color: #eee;
+    border-color: #eee;
+}
+
+.pagination button.active {
+    font-weight: 900;
+    border-color: #101010;
+    background: #ffe400;
+    color: #101010;
+}
