@@ -17,28 +17,16 @@ const fs = require('fs')
 const mime = require('mime-types');
 app.use(express.json())
 app.use('/uploads',express.static(__dirname + '/uploads') )
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://food2-back-cugsn0rcx-vaqsis-projects.vercel.app',
-  'https://food2-back.vercel.app',
-  'https://food2-front.vercel.app',
-  'https://food2-front-pgxoytvti-vaqsis-projects.vercel.app'
-
-
-
-  
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true 
+  credentials: true,
+  origin: [
+    'https://food2-back-cugsn0rcx-vaqsis-projects.vercel.app',
+    'https://food2-back.vercel.app',
+    'https://food2-front.vercel.app',
+    'https://food2-front-pgxoytvti-vaqsis-projects.vercel.app'
+  ]
 }));
+
 
 async function uploadToS3(path, originalFilename, mimetype) {
   const client = new S3Client({
