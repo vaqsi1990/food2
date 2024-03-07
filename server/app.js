@@ -29,7 +29,16 @@ const allowedOrigins = [
   
 ];
 
-
+app.use(cors({
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true 
+}));
 
 async function uploadToS3(path, originalFilename, mimetype) {
   const client = new S3Client({
@@ -53,16 +62,7 @@ async function uploadToS3(path, originalFilename, mimetype) {
 }
 
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true 
-}));
+
 app.use(cookieParser())
 
   const DB = process.env.MONGO_DB
