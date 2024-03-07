@@ -24,9 +24,9 @@ export default function IndexPage() {
       setCurrentPage(pageNumber);
     };
   
-    const filteredFood = food.filter((foodItem) =>
-      foodItem.title.toLowerCase().includes(search.toLowerCase())
-    );
+  const filteredFood = Array.isArray(food) ? food.filter((foodItem) =>
+        foodItem.title.toLowerCase().includes(search.toLowerCase())
+    ) : [];
   
     const lastIndex = currentPage * postPerPage;
     const firstIndex = lastIndex - postPerPage;
