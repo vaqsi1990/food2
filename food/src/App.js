@@ -38,8 +38,7 @@ function App() {
     <Route path="/reg"  element={ <Register  />}  />
     <Route path="/single/:id"  element={ <Single  />}  />
     <Route path="/user/:id"  element={ <SingleUser  />}  />
-    <Route path="/recover"  element={ <Recover  />}  />
-    <Route path="/reset/:token" element={<ResetPassword />} />
+
     <Route path='/admin/all' element={<AdminItems />}  />
     <Route path='about' element={<About />}      />
     </Route>
